@@ -207,24 +207,6 @@
       </svg>
     </div>
   </div>
-<script>
-  (function () {
-    function sendHeight() {
-      const height = document.documentElement.scrollHeight;
-      window.parent.postMessage(
-        { type: "IFRAME_HEIGHT", height },
-        "https://www.ghostproductions.com" // replace with your real Webflow domain
-      );
-    }
-
-    window.addEventListener("load", sendHeight);
-    window.addEventListener("resize", sendHeight);
-
-    // If content changes after load (images, fonts, etc.)
-    const ro = new ResizeObserver(sendHeight);
-    ro.observe(document.documentElement);
-  })();
-</script>
 
 </body>
 </html>
