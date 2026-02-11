@@ -208,54 +208,5 @@
     </div>
   </div>
 
-  <script>
-    // Copy link function (from your file)
-    function copyLink() {
-      navigator.clipboard.writeText(window.location.href).then(function () {
-        alert('Link copied to clipboard!');
-      });
-    }
-
-    // OPTIONAL: make the share URLs auto-include the current page URL
-    (function hydrateShareLinks() {
-      const url = encodeURIComponent(window.location.href);
-      const twitter = document.querySelector('.share-btn.twitter');
-      const linkedin = document.querySelector('.share-btn.linkedin');
-      const facebook = document.querySelector('.share-btn.facebook');
-      const reddit = document.querySelector('.share-btn.reddit');
-      const email = document.querySelector('.share-btn.email');
-
-      if (twitter) twitter.href = twitter.href + url;
-      if (linkedin) linkedin.href = linkedin.href + url;
-      if (facebook) facebook.href = facebook.href + url;
-      if (reddit) reddit.href = reddit.href.replace('url=', 'url=' + url + '&url=');
-      if (email) email.href = email.href + url;
-    })();
-  </script>
-<div style="width:100%;">
-  <iframe
-    id="blogFrame"
-    src="https://sether.github.io/Author-share/"
-    style="width:100%; border:0; display:block;"
-    loading="lazy"
-    title="Blog embed"
-  ></iframe>
-</div>
-
-<script>
-  (function () {
-    const frame = document.getElementById("blogFrame");
-
-    window.addEventListener("message", (event) => {
-      // Only accept messages from the GitHub Pages origin
-      if (event.origin !== "https://sether.github.io") return;
-
-      if (event.data && event.data.type === "IFRAME_HEIGHT") {
-        frame.style.height = event.data.height + "px";
-      }
-    });
-  })();
-</script>
-
 </body>
 </html>
